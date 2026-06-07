@@ -375,7 +375,11 @@ This project demonstrates:
 
 
 ### Review System
+![Review system](Screen%20shots/review.png)
 
+
+### Add Product Popup
+![Add product popup](Screen%20shots/add%20product%20popup.png)
 
 ---
 
