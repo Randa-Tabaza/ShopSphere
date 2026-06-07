@@ -363,16 +363,19 @@ This project demonstrates:
 ## 📸 Application Screenshots
 
 ### Homepage
-ShopSphere\Screen shots\s1.png
+![Homepage](Screen%20shots/homepage.png)
+
 
 ### Product Details Page
-(Add screenshot here)
+![Product Details](Screen%20shots/product%20details.png)
+
 
 ### Category Filtering
-(Add screenshot here)
+![Showing categories, search bar, and products](Screen%20shots/showing%20Catgories,%20search%20bar,%20and%20products.png)
+
 
 ### Review System
-(Add screenshot here)
+
 
 ---
 
