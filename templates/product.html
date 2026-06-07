@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="product-details">
+
+    <div>
+
+        {% if product.image_url %}
+        <img
+            src="{{ product.image_url }}"
+            alt="{{ product.name }}"
+        >
+        {% endif %}
+
+    </div>
+
+    <div>
+
+        <h1>{{ product.name }}</h1>
+
+        <p>{{ product.description }}</p>
+
+        <br>
+
+        <p><strong>Category:</strong> {{ product.category }}</p>
+
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+
+        <br>
+
+        <h2>
+            ⭐ {{ average_rating }}/5
+        </h2>
+
+    </div>
+
+</div>
+
+<hr style="margin:40px 0;">
+
+<h2>Add Review</h2>
+
+<form method="POST"
+      action="/add-review/{{ product.product_id }}">
+
+    <input
+        type="text"
+        name="customer_name"
+        placeholder="Your Name"
+        required
+    >
+
+    <select name="rating" required>
+
+        <option value="">
+            Select Rating
+        </option>
+
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+
+    </select>
+
+    <textarea
+        name="comment"
+        placeholder="Write your review..."
+        required
+    ></textarea>
+
+    <button type="submit">
+        Submit Review
+    </button>
+
+</form>
+
+<div class="review-sort">
+
+    <a
+        href="/product/{{ product.product_id }}?sort=newest"
+        class="category-btn {% if sort_by == 'newest' %}active-category{% endif %}"
+    >
+        Newest Reviews
+    </a>
+
+    <a
+        href="/product/{{ product.product_id }}?sort=rating"
+        class="category-btn {% if sort_by == 'rating' %}active-category{% endif %}"
+    >
+        Highest Rating
+    </a>
+
+</div>
+
+{% for review in reviews %}
+
+<div class="review-card">
+
+    <h3>{{ review.customer_name }}</h3>
+
+    <p>
+        {% for i in range(review.rating|int) %}
+        ⭐
+        {% endfor %}
+
+        {% for i in range(5 - (review.rating|int)) %}
+        ☆
+        {% endfor %}
+    </p>
+
+    <p>{{ review.comment }}</p>
+
+    <small>{{ review.timestamp }}</small>
+
+</div>
+
+{% endfor %}
+
+<br>
+
+<a class="back-link" href="/">
+    ← Back to Products
+</a>
+
+{% endblock %}
