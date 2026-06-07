@@ -379,7 +379,7 @@ This project demonstrates:
 
 
 ### Add Product Popup
-![Add product popup](Screen%20shots/add%20product%20popup.png)
+![Add product popup](Screen%20shots/add-products-popup.png)
 
 ---
 
